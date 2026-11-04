@@ -42,7 +42,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--mint); outline-
 
 /* Главная */
 .hero { background: var(--brand); color: var(--on-brand); }
-.hero-main { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding-block: 56px; }
+.hero-main { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; padding-block: 56px; }
 .hero .top a, .hero .top .logo { color: var(--on-brand); }
 .hero .top nav a { color: color-mix(in srgb, var(--on-brand) 75%, transparent); }
 .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 0 0 18px; letter-spacing: -.01em; text-wrap: balance; }
@@ -67,6 +67,13 @@ footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; padding-block: 24px 36px; }
 footer a { color: var(--muted); }
 
+/* Устройства на главной: iPad сзади, iPhone спереди справа */
+.devices { position: relative; padding-bottom: 12%; }
+.ipad { background: #0C1714; border-radius: 22px; padding: 12px; box-shadow: 0 24px 50px rgba(0,0,0,.35); width: 92%; }
+.ipad img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.iphone { position: absolute; right: 0; bottom: 0; width: 30%; background: #0C1714; border-radius: 26px; padding: 6px; box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+.iphone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+
 /* Текстовые страницы */
 .doc { max-width: 720px; margin: 0 auto; padding-block: 24px 64px;
   padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
@@ -81,6 +88,9 @@ footer a { color: var(--muted); }
 .mail { font-weight: 600; user-select: all; }
 .note { color: var(--muted); font-size: 15px; }
 
+@media (max-width: 520px) {
+  .top nav a.hide-s { display: none; }
+}
 @media (max-width: 760px) {
   .hero-main { grid-template-columns: 1fr; padding-block: 32px 44px; gap: 32px; }
   .features { grid-template-columns: 1fr; gap: 22px; padding-block: 40px; }
